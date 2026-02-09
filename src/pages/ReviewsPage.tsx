@@ -77,7 +77,7 @@ export function ReviewsPage() {
                 <ShieldCheck className="h-6 w-6 text-secondary" />
               </div>
               <div>
-                <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">UDAAN VERIFIED</p>
+                <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">UDAANN VERIFIED</p>
                 <p className="text-sm font-bold">Safe Local Commerce</p>
               </div>
             </div>

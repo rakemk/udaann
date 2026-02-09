@@ -1,0 +1,22 @@
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Left top blue wing -->
+  <path d="M 170 120 Q 150 160 160 220 Q 180 240 210 230 Q 200 180 210 140 Q 200 110 170 120 Z" fill="#003D7A"/>
+  
+  <!-- Left bottom blue wing -->
+  <path d="M 150 260 Q 130 300 150 360 Q 180 370 210 340 Q 200 300 210 240 Q 190 230 150 260 Z" fill="#003D7A"/>
+  
+  <!-- Right top orange wing -->
+  <path d="M 342 120 Q 362 160 352 220 Q 332 240 302 230 Q 312 180 302 140 Q 312 110 342 120 Z" fill="#FF6B35"/>
+  
+  <!-- Right bottom orange wing -->
+  <path d="M 362 260 Q 382 300 362 360 Q 332 370 302 340 Q 312 300 302 240 Q 322 230 362 260 Z" fill="#FF6B35"/>
+  
+  <!-- Center green accent -->
+  <path d="M 240 280 Q 256 300 256 330 Q 256 350 240 360 Q 224 350 224 330 Q 224 300 240 280 Z" fill="#4CAF50"/>
+  
+  <!-- Top orange arrow -->
+  <path d="M 256 60 L 280 120 L 256 110 L 232 120 Z" fill="#FF9F43"/>
+  
+  <!-- Text: UDAAN -->
+  <text x="256" y="420" font-family="Arial, sans-serif" font-size="72" font-weight="bold" text-anchor="middle" fill="#003D7A" letter-spacing="6">UDAAN</text>
+</svg>

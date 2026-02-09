@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Search, Bell, User, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { UdaanLogo } from "@/components/UdaanLogo";
 import { useAuth } from "@/hooks/useAuth";
 
 export function Navbar({ onToggleSidebar }: { onToggleSidebar: () => void }) {
@@ -13,11 +14,8 @@ export function Navbar({ onToggleSidebar }: { onToggleSidebar: () => void }) {
           <Menu className="h-5 w-5" />
         </Button>
         
-        <Link to="/" className="flex items-center gap-2 mr-6">
-          <div className="h-8 w-8 rounded-lg primary-gradient flex items-center justify-center text-white font-bold text-xl shadow-elegant">
-            U
-          </div>
-          <span className="text-xl font-bold tracking-tight hidden sm:inline-block">UDAAN</span>
+        <Link to="/" className="flex items-center gap-2 mr-6 hover:opacity-80 transition-opacity">
+          <UdaanLogo size="md" variant="full" />
         </Link>
 
         <div className="flex-1 max-w-md hidden md:block">

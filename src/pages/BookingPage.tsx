@@ -202,7 +202,7 @@ export function BookingPage() {
                   <div className="flex items-center gap-4 p-4 bg-primary/5 rounded-xl border border-primary/20">
                     <Zap className="h-6 w-6 text-primary" />
                     <div>
-                      <p className="text-sm font-bold">UDAAN FastPay Enabled</p>
+                      <p className="text-sm font-bold">UDAANN FastPay Enabled</p>
                       <p className="text-xs text-muted-foreground">Verified secure gateway for local commerce.</p>
                     </div>
                   </div>
@@ -275,7 +275,7 @@ export function BookingPage() {
                 <ShieldCheck className="h-5 w-5 text-secondary" />
               </div>
               <p className="text-[10px] text-muted-foreground leading-tight">
-                <strong>CANCEL ANYTIME</strong> before 2 hours of service. Full refund guaranteed via UDAAN escrow system.
+                <strong>CANCEL ANYTIME</strong> before 2 hours of service. Full refund guaranteed via UDAANN escrow system.
               </p>
             </div>
           </div>

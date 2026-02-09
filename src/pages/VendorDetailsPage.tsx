@@ -191,7 +191,7 @@ export function VendorDetailsPage() {
             
             <div className="mt-8 pt-6 border-t space-y-4">
               <div className="bg-primary/5 p-4 rounded-xl border border-primary/10">
-                <p className="text-xs font-bold text-primary uppercase tracking-widest mb-2">UDAAN TRUST GUARANTEE</p>
+                <p className="text-xs font-bold text-primary uppercase tracking-widest mb-2">UDAANN TRUST GUARANTEE</p>
                 <p className="text-sm text-muted-foreground">Payments are held in escrow and released only after you confirm service completion.</p>
               </div>
               <div className="flex items-center justify-between text-xs font-bold text-muted-foreground">

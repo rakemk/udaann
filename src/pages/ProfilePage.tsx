@@ -86,7 +86,7 @@ export function ProfilePage() {
       </div>
 
       <div className="text-center py-4">
-        <p className="text-xs text-muted-foreground font-bold uppercase tracking-widest">UDAAN OS v1.0.2</p>
+        <p className="text-xs text-muted-foreground font-bold uppercase tracking-widest">UDAANN OS v1.0.2</p>
       </div>
     </div>
   );

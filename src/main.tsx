@@ -3,6 +3,8 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AppLayout } from './components/layout/AppLayout';
 import { HomePage } from './pages/HomePage';
+import { HomeServicesPage } from './pages/HomeServicesPage';
+import { SearchPage } from './pages/SearchPage';
 import { VendorDetailsPage } from './pages/VendorDetailsPage';
 import { BookingPage } from './pages/BookingPage';
 import { VendorDashboardPage } from './pages/VendorDashboardPage';
@@ -18,6 +20,8 @@ createRoot(document.getElementById('root')!).render(
       <Routes>
         <Route element={<AppLayout />}>
           <Route path="/" element={<HomePage />} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/home-services" element={<HomeServicesPage />} />
           <Route path="/vendor/:id" element={<VendorDetailsPage />} />
           <Route path="/book/:serviceId" element={<BookingPage />} />
           <Route path="/vendor/dashboard" element={<VendorDashboardPage />} />

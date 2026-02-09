@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Search, MapPin, Star, ShieldCheck, Clock, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { UdaanLogo } from "@/components/UdaanLogo";
 import { blink } from "@/lib/blink";
+import { cn } from "@/lib/utils";
 
 const categories = [
   { name: "Home Services", icon: "🏠", color: "bg-orange-100" },
@@ -39,12 +41,21 @@ export function HomePage() {
       <section className="relative overflow-hidden rounded-3xl bg-slate-900 px-6 py-16 text-white md:px-12 md:py-24">
         <div className="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center" />
         <div className="relative z-10 max-w-2xl">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="mb-6 flex items-center gap-3"
+          >
+            <div className="h-14 w-14">
+              <UdaanLogo size="lg" variant="icon" />
+            </div>
+          </motion.div>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl font-bold tracking-tight md:text-6xl mb-6"
           >
-            Empowering Local Commerce with <span className="text-primary">UDAAN</span>
+            Empowering Local Commerce with <span className="text-orange-500">UDAANN</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -79,7 +90,7 @@ export function HomePage() {
       <section>
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-2xl font-bold tracking-tight">Browse Categories</h2>
-          <Button variant="link" className="text-primary font-semibold">View All</Button>
+          <Button variant="link" className="text-primary font-semibold" onClick={() => navigate("/search")}>View All</Button>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {categories.map((cat, i) => (
@@ -89,14 +100,16 @@ export function HomePage() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: i * 0.05 }}
               className="group cursor-pointer"
+              onClick={() => navigate(`/search?category=${encodeURIComponent(cat.name)}`)}
+              whileHover={{ scale: 1.05 }}
             >
               <div className={cn(
-                "h-24 rounded-2xl flex flex-col items-center justify-center gap-2 mb-2 transition-all group-hover:shadow-md",
+                "h-24 rounded-2xl flex flex-col items-center justify-center gap-2 mb-2 transition-all group-hover:shadow-lg group-hover:scale-110",
                 cat.color
               )}>
                 <span className="text-3xl">{cat.icon}</span>
               </div>
-              <span className="text-sm font-semibold text-center block">{cat.name}</span>
+              <span className="text-sm font-semibold text-center block group-hover:text-primary transition-colors">{cat.name}</span>
             </motion.div>
           ))}
         </div>
@@ -191,8 +204,4 @@ export function HomePage() {
       </section>
     </div>
   );
-}
-
-function cn(...inputs: any[]) {
-  return inputs.filter(Boolean).join(' ');
 }
