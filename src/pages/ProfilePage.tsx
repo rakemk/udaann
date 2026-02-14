@@ -18,6 +18,15 @@ export function ProfilePage() {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
 
+  const isVendor = Boolean(
+    user && (
+      (user as any).roles?.includes?.("vendor") ||
+      (user as any).role === "vendor" ||
+      (user as any).isVendor ||
+      (user as any).customClaims?.role === "vendor"
+    )
+  );
+
   const handleLogout = async () => {
     await signOut();
     toast.success("Logged out successfully");
@@ -61,13 +70,23 @@ export function ProfilePage() {
             <User className="h-5 w-5 text-muted-foreground" />
             <span className="flex-1 text-left font-semibold">Account Settings</span>
           </Button>
+          {isVendor && (
+            <Button 
+              onClick={() => navigate('/vendor/dashboard')}
+              variant="ghost" 
+              className="w-full justify-start h-14 gap-4 px-6 rounded-2xl text-secondary hover:text-secondary hover:bg-secondary/5"
+            >
+              <Building className="h-5 w-5" />
+              <span className="flex-1 text-left font-semibold">Vendor Dashboard</span>
+            </Button>
+          )}
           <Button 
-            onClick={() => navigate('/vendor/dashboard')}
+            onClick={() => navigate('/dashboard')}
             variant="ghost" 
-            className="w-full justify-start h-14 gap-4 px-6 rounded-2xl text-secondary hover:text-secondary hover:bg-secondary/5"
+            className="w-full justify-start h-14 gap-4 px-6 rounded-2xl"
           >
-            <Building className="h-5 w-5" />
-            <span className="flex-1 text-left font-semibold">Vendor Dashboard</span>
+            <User className="h-5 w-5 text-muted-foreground" />
+            <span className="flex-1 text-left font-semibold">Your Dashboard</span>
           </Button>
           <Button variant="ghost" className="w-full justify-start h-14 gap-4 px-6 rounded-2xl">
             <Settings className="h-5 w-5 text-muted-foreground" />

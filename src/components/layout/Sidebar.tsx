@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/hooks/useAuth";
 
 const navItems = [
   { icon: Home, label: "Home", href: "/" },
@@ -23,11 +24,32 @@ const navItems = [
 
 const vendorItems = [
   { icon: LayoutDashboard, label: "Dashboard", href: "/vendor/dashboard" },
-  { icon: ShoppingBag, label: "Admin Panel", href: "/admin" },
 ];
+
+const adminItem = { icon: ShoppingBag, label: "Admin Panel", href: "/admin" };
 
 export function Sidebar({ isOpen }: { isOpen: boolean }) {
   const location = useLocation();
+  const { user } = useAuth();
+
+  const isVendor = Boolean(
+    user && (
+      // common possible shapes for role flags
+      (user as any).roles?.includes?.("vendor") ||
+      (user as any).role === "vendor" ||
+      (user as any).isVendor ||
+      (user as any).customClaims?.role === "vendor"
+    )
+  );
+
+  const isAdmin = Boolean(
+    user && (
+      (user as any).roles?.includes?.("admin") ||
+      (user as any).role === "admin" ||
+      (user as any).isAdmin ||
+      (user as any).customClaims?.role === "admin"
+    )
+  );
 
   return (
     <aside className={cn(
@@ -57,7 +79,7 @@ export function Sidebar({ isOpen }: { isOpen: boolean }) {
             Vendor Portal
           </h3>
           <div className="space-y-1">
-            {vendorItems.map((item) => (
+            {isVendor && vendorItems.map((item) => (
               <Link key={item.href} to={item.href}>
                 <Button
                   variant="ghost"
@@ -71,6 +93,21 @@ export function Sidebar({ isOpen }: { isOpen: boolean }) {
                 </Button>
               </Link>
             ))}
+
+            {isAdmin && (
+              <Link key={adminItem.href} to={adminItem.href}>
+                <Button
+                  variant="ghost"
+                  className={cn(
+                    "w-full justify-start gap-3 rounded-lg px-3 h-11",
+                    location.pathname === adminItem.href && "bg-secondary/10 text-secondary hover:bg-secondary/20"
+                  )}
+                >
+                  <adminItem.icon className="h-5 w-5" />
+                  <span>{adminItem.label}</span>
+                </Button>
+              </Link>
+            )}
           </div>
         </div>
 

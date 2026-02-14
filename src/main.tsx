@@ -8,6 +8,7 @@ import { SearchPage } from './pages/SearchPage';
 import { VendorDetailsPage } from './pages/VendorDetailsPage';
 import { BookingPage } from './pages/BookingPage';
 import { VendorDashboardPage } from './pages/VendorDashboardPage';
+import { UserDashboardPage } from './pages/UserDashboardPage';
 import { ChatPage } from './pages/ChatPage';
 import { ReviewsPage } from './pages/ReviewsPage';
 import { AdminPanelPage } from './pages/AdminPanelPage';
@@ -24,6 +25,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/home-services" element={<HomeServicesPage />} />
           <Route path="/vendor/:id" element={<VendorDetailsPage />} />
           <Route path="/book/:serviceId" element={<BookingPage />} />
+          <Route path="/dashboard" element={<UserDashboardPage />} />
           <Route path="/vendor/dashboard" element={<VendorDashboardPage />} />
           <Route path="/messages" element={<ChatPage />} />
           <Route path="/reviews" element={<ReviewsPage />} />
